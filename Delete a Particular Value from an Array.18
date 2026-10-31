@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+int main()
+{
+    int a[10], n, i, num, pos = -1;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    if (n < 1 || n > 10)
+    {
+        printf("Invalid number of elements.");
+        return 0;
+    }
+
+    printf("Enter the array elements:\n");
+
+    for (i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+
+    printf("Enter the value to delete: ");
+    scanf("%d", &num);
+
+    for (i = 0; i < n; i++)
+    {
+        if (a[i] == num)
+        {
+            pos = i;
+            break;
+        }
+    }
+
+    if (pos == -1)
+    {
+        printf("Value not found.");
+    }
+    else
+    {
+        for (i = pos; i < n - 1; i++)
+            a[i] = a[i + 1];
+
+        n--;
+
+        printf("Array after deletion:\n");
+
+        for (i = 0; i < n; i++)
+            printf("%d ", a[i]);
+    }
+
+    return 0;
+}
